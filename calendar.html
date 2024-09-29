@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heritage Hub - Cultural Events Calendar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    .navbar {
+      background-color: #333;
+      color: #fff;
+      padding: 15px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 50px;
+    }
+
+    .navbar .logo {
+      font-size: 28px;
+      font-weight: 600;
+      color: #ffcc00;
+    }
+
+    .navbar .nav-links {
+      list-style: none;
+      display: flex;
+    }
+
+    .navbar .nav-links li {
+      margin-left: 20px;
+    }
+
+    .navbar .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      padding: 5px 15px;
+    }
+
+    /* Calendar Styles */
+    .events-section {
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+      margin-top: 20px;
+    }
+
+    .month h3 {
+      grid-column: span 7;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .weekdays, .days {
+      display: contents;
+    }
+
+    .weekdays div, .days div {
+      padding: 10px;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+    }
+
+    .event-day {
+      background-color: #ffcc00;
+      font-weight: bold;
+    }
+
+    .event-day:hover {
+      background-color: #ff9900;
+      cursor: pointer;
+    }
+
+    .event-details {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: #f4f4f4;
+      border-radius: 8px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">Heritage Hub</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="explore.html">Explore</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Cultural Events Calendar -->
+  <section class="events-section">
+    <h2>Upcoming Cultural Events</h2>
+    <div class="calendar">
+      <div class="month">
+        <h3>September 2024</h3>
+      </div>
+      <div class="weekdays">
+        <div>Sun</div>
+        <div>Mon</div>
+        <div>Tue</div>
+        <div>Wed</div>
+        <div>Thu</div>
+        <div>Fri</div>
+        <div>Sat</div>
+      </div>
+      <div class="days">
+        <div>1</div>
+        <div>2</div>
+        <div class="event-day" data-event="Ganesh Chaturthi">3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+        <div class="event-day" data-event="Onam Festival">12</div>
+        <div>13</div>
+        <div>14</div>
+        <div>15</div>
+        <div>16</div>
+        <div class="event-day" data-event="Folk Dance Exhibition">17</div>
+        <div>18</div>
+        <div>19</div>
+        <div>20</div>
+        <div>21</div>
+        <div>22</div>
+        <div>23</div>
+        <div>24</div>
+        <div class="event-day" data-event="Traditional Music Workshop">25</div>
+        <div>26</div>
+        <div>27</div>
+        <div>28</div>
+        <div>29</div>
+        <div>30</div>
+      </div>
+    </div>
+    <div id="event-details" class="event-details">
+      <p>Select a day to see event details</p>
+    </div>
+  </section>
+
+  <script>
+    // JavaScript for displaying event details
+    document.querySelectorAll('.event-day').forEach(day => {
+      day.addEventListener('click', function() {
+        const eventName = day.getAttribute('data-event');
+        document.getElementById('event-details').innerHTML = `<p>Event: <strong>${eventName}</strong></p>`;
+      });
+    });
+  </script>
+</body>
+</html>
